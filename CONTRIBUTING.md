@@ -9,7 +9,7 @@ This project is a Skill for AI agents that turn photos into brand packaging iden
 Check whether the problem belongs to one of these buckets:
 
 - Top-half fidelity: the photo subject is stretched, repainted, or over-graded.
-- Division drift: the 50/50 split is ignored or the ratio is wrong.
+- Division drift: the layout drifts away from the integrated three-section board.
 - Bottom-half quality: carriers look like an e-commerce display, graphics are photo copies, or the layout is a mockup dump.
 - Palette drift: colors fall outside the locked family or dusty rose exceeds 10%.
 - Typography: gibberish text, repeated title stamps, or invented copy.
@@ -47,4 +47,4 @@ For rule changes, run the full SKILL.md workflow on at least one real photo (a p
 
 ## Style Notes
 
-This Skill is opinionated by design: the locked palette, the 50/50 division, and the finalized-copy rule exist because constraints make AI-generated posters more reliable. When in doubt, preserve the existing constraints and improve the workflow around them.
+This Skill is opinionated by design: the locked palette, the integrated full-board layout, and the finalized-copy rule exist because constraints make AI-generated posters more reliable. When in doubt, preserve the existing constraints and improve the workflow around them.

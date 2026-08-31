@@ -7,7 +7,7 @@
 
 > 🌏 **English version: [README.en.md](./README.en.md)**
 
-一个适配 Claude Code / Codex / ZCode 等 Agent 环境的设计 Skill：把用户上传的**每一张照片**单独转译为一张**品牌包装系统提案板海报**——默认**融入式全板**：照片主体的轮廓、姿态与光影记忆点被提炼为核心图形，融洽地融入整张提案板，应用到 5–8 种包装载体，形成一套完整、统一、可延展的品牌视觉提案；也支持可选的 50/50 分割版（上半保留实拍 + 下半包装系统）。
+一个适配 Claude Code / Codex / ZCode 等 Agent 环境的设计 Skill：把用户上传的**每一张照片**单独转译为一张**品牌包装系统提案板海报**——默认**融入式全板**：照片主体的轮廓、姿态与光影记忆点被提炼为核心图形，融洽地融入整张提案板，应用到 5–8 种包装载体，形成一套完整、统一、可延展的品牌视觉提案。
 
 不是给照片加滤镜，也不是把照片修成插画：照片是**种子**，海报是**系统**——照片长出图形，图形长出整套包装语言，全部融在一张板子里。
 
@@ -36,8 +36,6 @@
 ```
 
 照片不再占据独立分区：主体的轮廓、姿态与光影记忆点被提炼成核心图形，印在每一件载体上，与色板、材质、文字共用同一套语言，整张板子融洽一体。
-
-想要"上半保留实拍"的版本？点名 **50/50 分割版**，skill 会切换为上半原照片 + 下半包装系统的对分构图。
 
 - **每张照片独立输出一张海报**，绝不多图拼接；多张照片各自走完整流程并按顺序编号。
 - 无论原图是人物、动物、植物、建筑、器物、食物、交通工具还是自然景观，都从照片本身建立独特的包装语言，不套固定产品组合、不重复模板、不做电商展示感。
@@ -75,8 +73,7 @@ git clone https://github.com/WinterNova-X/design-poster.git ~/.claude/skills/des
 
 ## 核心效果
 
-- 🧩 **融入式全板（默认）**：照片主体提炼为图形融入整张提案板，画面融洽不分屏
-- 📐 **可选 50/50 分割版**：点名"上下分屏"时，上半保留实拍、下半包装系统，分界严格对分
+- 🧩 **融入式全板**：照片主体提炼为图形融入整张提案板，画面融洽不分屏
 - 📷 **主体提炼而非复制**：核心图形 1 个 + 辅助元素 1–2 个 + 纹样 1 套，是"提炼"而非"描摹"
 - 📦 **载体按主题自适应**：7 类主体 × 28 种载体短语库，每次 5–8 件、1–2 个主包装，连续多张不复用组合
 - 🎨 **固定高级色板**：浅粉蓝 / 雾蓝 / 天空蓝 + 象牙白 / 奶油白 / 浅米色 / 灰绿 + 少量 dusty rose 跳点（≤10%）
@@ -129,32 +126,6 @@ git clone https://github.com/WinterNova-X/design-poster.git ~/.claude/skills/des
 
 Agent 环境具备生图能力时直接生成图像；不具备时交付两份可直接粘贴的提示词（配合 GPT-4o、即梦、Nano Banana、Midjourney 等图生图模型使用）。
 
-## 分割版提示词模板（可选模式，不装 skill 也能用）
-
-默认融入式全板的版面骨架见 [`references/board-variant.md`](./references/board-variant.md)。下面是点名"上下分屏 / 5050"时用的 50/50 分割模板——上传原照片 + 把模板填好占位符后整段粘贴，一次一张：
-
-```text
-Premium brand packaging identity presentation board, 3:4 vertical poster,
-strict 50/50 horizontal division. TOP: the attached photograph with subtle
-fine-art color grading, subject identity, pose and natural light preserved,
-extend the {sky/ground/wall} naturally, no distortion. BOTTOM: packaging
-identity system on an ivory white studio background — one core illustrated
-mark derived from the photo subject ({主体最识别的特征}), a derived repeating
-pattern, and 5–8 coordinated carriers ({纸袋/吊牌/票券/贴纸…逐件列出}),
-one hero package as focal point, modular grid, edge alignment, strong scale
-contrast, generous negative space, at most 2–3 subtle overlaps. Palette:
-powder blue, mist blue, sky blue, ivory white, cream, light beige, soft
-grey-green, architectural neutrals, small dusty rose accents only. Matte
-paper, textured card, translucent glassine, embossing, die-cut, soft natural
-light showing paper thickness and folds. Title "{你的标题}" in {serif /
-geometric sans}, appears fully at most twice, other carriers use No.01 and
-small category text. All text exactly as specified, no other invented text.
-No multi-photo collage, no subject distortion, no e-commerce display, no
-plastic gloss, no exaggerated 3D, no gibberish text, no watermark.
-```
-
-需要更完整的分区骨架（中文版、按主体类型的变体钩子），见 [`references/prompt-templates.md`](./references/prompt-templates.md)。
-
 ## 示例文案库
 
 主标题按主体类型挑一个风格，编号和品类名可以混搭：
@@ -179,7 +150,6 @@ plastic gloss, no exaggerated 3D, no gibberish text, no watermark.
 | 症状 | 多半是 | 修复 |
 |------|--------|------|
 | 主体被拉伸 / 变形 / 换脸 | 上半区保真条款太弱 | TOP 区加：`preserve the subject exactly as photographed, no stretching, no warping, no repaint` |
-| 上下不是 50/50 | 模型自由发挥了分界 | 开头强调：`strict 50/50 horizontal division, the divide line runs exactly through the middle of the canvas` |
 | 像电商商品陈列图 | 载体写成了 "a set of merchandise" | 逐件列出载体 + 加：`presentation board layout, modular grid, generous negative space, not a product display` |
 | 文字乱码 / 多出奇怪文字 | 文案没定稿就生成 | 每条文案写确切内容，结尾加：`All text exactly as specified, no other invented text`；仍乱就换 GPT-4o / Nano Banana，或生成无字版后用排版工具叠字 |
 | 颜色跑偏、发灰发脏 | 色板没点名 | 按模板点名全部色名，保留 `small dusty rose accents only` |
@@ -209,8 +179,8 @@ design-poster/
 
 ## 核心设计原则
 
-1. **证据与系统对照** — 上半区是照片证据，下半区是从证据长出的品牌系统，两者必须至少有一处色彩或图形呼应
-2. **提炼优于复制** — 下半区出现的是图形资产，不是照片的裁剪或描摹
+1. **融入与同源** — 照片主体提炼为图形贯穿全板，提炼图形与原照片至少一处色彩或图形呼应
+2. **提炼优于复制** — 全板出现的是图形资产，不是照片的裁剪或描摹
 3. **色板是身份** — 所有载体同一套色板，只动面积与位置，不允许自定义色相
 4. **文字是结构** — 排法随载体变化，标题不是贴纸；所有文案定稿在先
 5. **提案板优于陈列** — 网格、对齐、尺度反差、留白；拒绝电商感和 mockup 倾倒
@@ -228,9 +198,6 @@ design-poster/
 
 **必须会设计才能用吗？**
 不需要。上传照片后说"帮我设计海报"即可，判断和组装都由 Agent 按流程完成。
-
-**想要上半是实拍照片的版本？**
-在请求里点名"50/50 分割版"或"上下分屏"，skill 会切换为上半保留原照片实拍、下半包装系统的对分构图；默认输出为融入式全板。
 
 **环境里没有生图能力怎么办？**
 Skill 会输出中英两份定稿提示词，复制到任何支持图生图的模型（GPT-4o、即梦、Nano Banana、Midjourney 等），连同原照片一起提交，一次一张。

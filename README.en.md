@@ -7,7 +7,7 @@
 
 > 🌏 **中文说明: [README.md](./README.md)**
 
-A design skill for AI agent environments (Claude Code / Codex / ZCode): it turns **each photo you upload** into a standalone **brand packaging identity presentation board** — by default an **integrated full board**: the photo subject's silhouette, pose and light are distilled into core graphics woven through the entire poster and applied across 5–8 packaging carriers, forming one coherent, extensible brand visual system. An optional 50/50 split mode (original photo on top, packaging system below) is available on request.
+A design skill for AI agent environments (Claude Code / Codex / ZCode): it turns **each photo you upload** into a standalone **brand packaging identity presentation board** — by default an **integrated full board**: the photo subject's silhouette, pose and light are distilled into core graphics woven through the entire poster and applied across 5–8 packaging carriers, forming one coherent, extensible brand visual system.
 
 It is not a filter and not a photo-to-illustration converter: the photo is the **seed**, the poster is the **system** — the photo grows graphics, the graphics grow a whole packaging language, all inside one board.
 
@@ -39,9 +39,6 @@ It is not a filter and not a photo-to-illustration converter: the photo is the *
 The photo no longer occupies its own zone: the subject's silhouette, pose and
 light become a core mark printed on every carrier, sharing one palette, one
 material language and one typography system with the rest of the board.
-
-Want the original photo kept on top? Ask for the **50/50 split mode** and the
-skill switches to a photo-top, packaging-bottom layout.
 
 - **One poster per photo, never a collage.** Multiple photos each run the full pipeline and are numbered in order.
 - Whether the source is a person, animal, plant, building, object, food, vehicle, or landscape, the packaging language is built from the photo itself — no fixed product combos, no repeated templates, no e-commerce display feel.
@@ -80,8 +77,7 @@ For this architecture photo, make sure the carrier set includes tickets.
 
 ## Highlights
 
-- 🧩 **Integrated full board (default)** — the photo subject is distilled into graphics woven through the entire board; no hard split
-- 📐 **Optional 50/50 split** — ask for "split mode" to keep the original photo on top with the packaging system below
+- 🧩 **Integrated full board** — the photo subject is distilled into graphics woven through the entire board; no hard split
 - ✏️ **Distillation, not copying** — 1 core mark + 1–2 supporting elements + 1 pattern, derived rather than traced from the photo
 - 📦 **Theme-adaptive carriers** — 7 subject types × 28 carrier phrases; 5–8 items and 1–2 hero packages per run; no combo reuse across consecutive posters
 - 🎨 **Locked palette** — powder / mist / sky blue over ivory / cream / beige / grey-green, with dusty rose accents capped at 10%
@@ -134,33 +130,6 @@ English prompt phrases and combination rules per carrier: [`references/carriers.
 
 If the agent environment can generate images, it generates directly; otherwise it delivers both finalized prompts for any image-to-image model (GPT-4o, Jimeng, Nano Banana, Midjourney, …).
 
-## Split-Mode Prompt Template (optional; works without installing the skill)
-
-The default integrated-board skeleton lives in [`references/board-variant.md`](./references/board-variant.md). The template below is for the optional 50/50 split mode — attach the original photo, fill in the placeholders, and paste the whole block, one photo at a time:
-
-```text
-Premium brand packaging identity presentation board, 3:4 vertical poster,
-strict 50/50 horizontal division. TOP: the attached photograph with subtle
-fine-art color grading, subject identity, pose and natural light preserved,
-extend the {sky/ground/wall} naturally, no distortion. BOTTOM: packaging
-identity system on an ivory white studio background — one core illustrated
-mark derived from the photo subject ({most identifiable subject feature}),
-a derived repeating pattern, and 5–8 coordinated carriers ({list each:
-paper bag / hang tag / ticket / stickers…}), one hero package as focal
-point, modular grid, edge alignment, strong scale contrast, generous
-negative space, at most 2–3 subtle overlaps. Palette: powder blue, mist
-blue, sky blue, ivory white, cream, light beige, soft grey-green,
-architectural neutrals, small dusty rose accents only. Matte paper,
-textured card, translucent glassine, embossing, die-cut, soft natural
-light showing paper thickness and folds. Title "{YOUR TITLE}" in {serif /
-geometric sans}, appears fully at most twice, other carriers use No.01 and
-small category text. All text exactly as specified, no other invented text.
-No multi-photo collage, no subject distortion, no e-commerce display, no
-plastic gloss, no exaggerated 3D, no gibberish text, no watermark.
-```
-
-For the full sectioned skeleton (Chinese version and per-subject variant hooks), see [`references/prompt-templates.md`](./references/prompt-templates.md).
-
 ## Copy Library
 
 Pick a title style by subject type; numbers and category names mix freely:
@@ -185,7 +154,6 @@ When a render goes wrong, add the fix sentence at the indicated spot and regener
 | Symptom | Likely cause | Fix |
 |------|--------|------|
 | Subject stretched / warped / face changed | Weak top-half fidelity clause | Add to TOP: `preserve the subject exactly as photographed, no stretching, no warping, no repaint` |
-| Halves not 50/50 | Model improvised the divide | Open with: `strict 50/50 horizontal division, the divide line runs exactly through the middle of the canvas` |
 | Looks like an e-commerce display | Carriers written as "a set of merchandise" | List carriers one by one + add: `presentation board layout, modular grid, generous negative space, not a product display` |
 | Gibberish / invented text | Copy not finalized before generation | Write every string explicitly, end with: `All text exactly as specified, no other invented text`; if it persists, switch to GPT-4o / Nano Banana or generate a text-free version and overlay copy in a layout tool |
 | Colors drift or turn muddy | Palette not named | Name every palette color per the template, keep `small dusty rose accents only` |
@@ -236,8 +204,6 @@ design-poster/
 No. Upload a photo and ask "turn this into a poster" — the agent runs the pipeline.
 
 **Want the original photo kept on top?**
-Ask for the "50/50 split mode" or "split layout" — the skill switches to a photo-top, packaging-bottom layout. The default output is the integrated full board.
-
 **What if my environment cannot generate images?**
 The skill outputs finalized Chinese and English prompts. Paste one prompt together with the original photo into any image-to-image model, one photo at a time.
 
