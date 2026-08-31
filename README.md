@@ -8,7 +8,7 @@
 ![Skill](https://img.shields.io/badge/Skill-Agent-8CA9C0?style=flat-square)
 ![Format](https://img.shields.io/badge/format-3%3A4%20integrated%20board-B9CFE0?style=flat-square)
 
-**样张画廊**（全部由本 skill 的提示词实测生成）：
+## 样张画廊（全部由本 skill 的提示词实测生成）：
 
 <p>
   <img src="./assets/preview-01.png" width="32%" alt="蜜雪冰城 × 电子科技大学 SIGNAL 1956">
